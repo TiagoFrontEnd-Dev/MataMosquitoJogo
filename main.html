@@ -14,8 +14,24 @@
 
 <body onresize="adjustsSuchAStageGame()">
 
+    <div class="panel">
+        <div class="lives">
+            <img id="lv1" src="img/coracao_cheio.png" alt="">
+            <img id="lv2" src="img/coracao_cheio.png" alt="">
+            <img id="lv3" src="img/coracao_cheio.png" alt="">
+        </div>
+
+        <div class="stopwatch">
+            Tempo restante: ?
+        </div>
+    </div>
+
+
+
     <script>
-        positionRandomica()
+        setInterval(function(){
+            positionRandomica()
+        }, 2000)
     </script>
 </body>
 

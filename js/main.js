@@ -1,6 +1,7 @@
 var width = 0
 var heigth = 0
 var lives = 1
+var time = 15
 
 function adjustsSuchAStageGame() {
     width = window.innerWidth
@@ -11,6 +12,18 @@ function adjustsSuchAStageGame() {
 
 adjustsSuchAStageGame()
 
+var stopwatch = setInterval(function(){
+    
+    time -= 1
+
+    if(time < 0){
+        window.location.href = 'layout/victory.html'
+    }else{
+        document.getElementById('stopwatch').innerHTML = time
+    }
+    
+    
+}, 1000)
 
 function positionRandomica() {
 
@@ -20,7 +33,7 @@ function positionRandomica() {
 
         // console.log('lv' + lives)
         if(lives > 3){
-            alert('Game Over')
+            window.location.href = 'layout/endGame.html'
         }else{
         document.getElementById('lv' + lives).src = "img/coracao_vazio.png"
 

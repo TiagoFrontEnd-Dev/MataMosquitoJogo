@@ -2,6 +2,24 @@ var width = 0
 var heigth = 0
 var lives = 1
 var time = 15
+var createInsectsTime = 1500
+
+var level = window.location.href 
+level = level.replace('?', '')
+
+if(level === 'easy'){
+    //1500
+    createInsectsTime = 1500
+    
+}else if(level === 'medium'){
+    //1000
+    createInsectsTime = 1000
+    
+}else if(level === 'hard'){
+    
+    createInsectsTime = 300
+    
+}
 
 function adjustsSuchAStageGame() {
     width = window.innerWidth
@@ -17,7 +35,7 @@ var stopwatch = setInterval(function(){
     time -= 1
 
     if(time < 0){
-        window.location.href = 'layout/victory.html'
+        window.location.href = '/layout/victory.html'
     }else{
         document.getElementById('stopwatch').innerHTML = time
     }
@@ -33,9 +51,9 @@ function positionRandomica() {
 
         // console.log('lv' + lives)
         if(lives > 3){
-            window.location.href = 'layout/endGame.html'
+            window.location.href = '/layout/endGame.html'
         }else{
-        document.getElementById('lv' + lives).src = "img/coracao_vazio.png"
+        document.getElementById('lv' + lives).src = "/img/coracao_vazio.png"
 
         lives++
         }
@@ -50,7 +68,7 @@ function positionRandomica() {
 
     //Criar o elemento html
     var insects = document.createElement('img')
-    insects.src = 'img/mosca.png'
+    insects.src = '/img/mosca.png'
     insects.className = randomSize() + ' ' + randomSide()
     insects.style.left = positionX + 'px'
     insects.style.top = positionY + 'px'
